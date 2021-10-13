@@ -10,7 +10,7 @@
         <li><a href="#">Quotes</a></li>
         <li><a href="#">Top 20</a></li>
         <li><a href="#">Order</a></li>
-        <li><a href="#">Trade</a></li>
+        <li><a href="#">Trades</a></li>
         <li><a href="#">Chart</a></li>
         <li><a href="#">Information</a></li>
       </ul>
