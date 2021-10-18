@@ -9,41 +9,43 @@
       </ul>
     </nav>
 
-    <div class="data_saham_kiri">
+    <div class="data_saham_kiri" v-for="orderBook in orderBooks" :key="orderBook">
       <div class="detail_data_saham_kiri">
-        BBCA
+        <div v-if="orderBook">
+          {{ orderBook.kodeSaham }}
+        </div>
       </div>
 
-      <div class="detail_data_saham_kiri">
-        36,600
+      <div class="detail_data_saham_kiri" v-for="orderBook in orderBooks" :key="orderBook">
+        {{ orderBook.hargaTerakhir }}
       </div>
     </div>
-    <div class="data_saham_kanan">
+    <div class="data_saham_kanan" v-for="orderBook in orderBooks" :key="orderBook">
       <table>
         <tr>
-          <th>Change:</th>
-          <th>OPEN:</th>
+          <th>Change: {{ orderBook.changes }}</th>
+          <th>OPEN: {{ orderBook.priceOpen }}</th>
         </tr>
 
         <tr>
-          <th>Change%:</th>
-          <th>High:</th>
+          <th>Change %: {{ orderBook.changePersen }}%</th>
+          <th>High: {{ orderBook.priceHigh }}</th>
         </tr>
 
         <tr>
-          <th>Close:</th>
-          <th>Low:</th>
+          <th>Close: {{ orderBook.priceClose }}</th>
+          <th>Low: {{ orderBook.priceLow }}</th>
         </tr>
 
         <tr>
-          <th>F.Sell:</th>
-          <th>D.Buy:</th>
+          <th>F.Sell: {{ orderBook.foreignSale }}</th>
+          <th>D.Buy: {{ orderBook.domesticBuy }}</th>
         </tr>
       </table>
     </div>
 
-    <div class="table-wrapper">
-      <table class="fl-table">
+    <div class="table-wrapper" v-for="orderBook in orderBooks" :key="orderBook">
+      <table class="fl-table" v-for="child in orderBook.orderbook" :key="child">
         <thead>
           <tr class="heading-row">
             <th>Ord</th>
@@ -56,84 +58,68 @@
         </thead>
         <tbody>
           <tr>
-            <td>73969</td>
-            <td>73969</td>
-            <td>73969</td>
-            <td>73969</td>
-            <td>73969</td>
-            <td>73969</td>
+            <td>{{ child.bidOrder }}</td>
+            <td>{{ child.lotOffer }}</td>
+            <td>{{ child.bidPrice }}</td>
+            <td>{{ child.lotPrice }}</td>
+            <td>{{ child.lotOffer }}</td>
+            <td>{{ child.offerOrder }}</td>
           </tr>
           <tr>
-            <td>29485</td>
-            <td>29485</td>
-            <td>29485</td>
-            <td>29485</td>
-            <td>29485</td>
-            <td>29485</td>
+            <td>{{ child.bidOrder }}</td>
+            <td>{{ child.lotOffer }}</td>
+            <td>{{ child.bidPrice }}</td>
+            <td>{{ child.lotPrice }}</td>
+            <td>{{ child.lotOffer }}</td>
+            <td>{{ child.offerOrder }}</td>
           </tr>
           <tr>
-            <td>395945</td>
-            <td>395945</td>
-            <td>395945</td>
-            <td>395945</td>
-            <td>395945</td>
-            <td>395945</td>
+            <td>{{ child.bidOrder }}</td>
+            <td>{{ child.lotOffer }}</td>
+            <td>{{ child.bidPrice }}</td>
+            <td>{{ child.lotPrice }}</td>
+            <td>{{ child.lotOffer }}</td>
+            <td>{{ child.offerOrder }}</td>
           </tr>
           <tr>
-            <td>857284</td>
-            <td>857284</td>
-            <td>857284</td>
-            <td>857284</td>
-            <td>857284</td>
-            <td>857284</td>
+            <td>{{ child.bidOrder }}</td>
+            <td>{{ child.lotOffer }}</td>
+            <td>{{ child.bidPrice }}</td>
+            <td>{{ child.lotPrice }}</td>
+            <td>{{ child.lotOffer }}</td>
+            <td>{{ child.offerOrder }}</td>
           </tr>
           <tr>
-            <td>756384</td>
-            <td>756384</td>
-            <td>756384</td>
-            <td>756384</td>
-            <td>756384</td>
-            <td>756384</td>
+            <td>{{ child.bidOrder }}</td>
+            <td>{{ child.lotOffer }}</td>
+            <td>{{ child.bidPrice }}</td>
+            <td>{{ child.lotPrice }}</td>
+            <td>{{ child.lotOffer }}</td>
+            <td>{{ child.offerOrder }}</td>
           </tr>
           <tr>
-            <td>184920</td>
-            <td>184920</td>
-            <td>184920</td>
-            <td>184920</td>
-            <td>184920</td>
-            <td>184920</td>
+            <td>{{ child.bidOrder }}</td>
+            <td>{{ child.lotOffer }}</td>
+            <td>{{ child.bidPrice }}</td>
+            <td>{{ child.lotPrice }}</td>
+            <td>{{ child.lotOffer }}</td>
+            <td>{{ child.offerOrder }}</td>
           </tr>
           <tr>
-            <td>590249</td>
-            <td>590249</td>
-            <td>590249</td>
-            <td>590249</td>
-            <td>590249</td>
-            <td>590249</td>
+            <td>{{ child.bidOrder }}</td>
+            <td>{{ child.lotOffer }}</td>
+            <td>{{ child.bidPrice }}</td>
+            <td>{{ child.lotPrice }}</td>
+            <td>{{ child.lotOffer }}</td>
+            <td>{{ child.offerOrder }}</td>
           </tr>
           <tr>
-            <td>582948</td>
-            <td>582948</td>
-            <td>582948</td>
-            <td>582948</td>
-            <td>582948</td>
-            <td>582948</td>
-          </tr>
-          <tr>
-            <td>769302</td>
-            <td>769302</td>
-            <td>769302</td>
-            <td>769302</td>
-            <td>769302</td>
-            <td>769302</td>
-          </tr>
-          <tr>
-            <td>674938</td>
-            <td>674938</td>
-            <td>674938</td>
-            <td>674938</td>
-            <td>674938</td>
-            <td>674938</td>
+            <td>{{ child.bidOrder }}</td>
+            <td>{{ child.lotOffer }}</td>
+            <td>{{ child.bidPrice }}</td>
+            <td>{{ child.lotPrice }}</td>
+            <td>{{ child.lotOffer }}</td>
+            <td>{{ child.offerOrder }}</td>
           </tr>
         </tbody>
 
@@ -144,8 +130,26 @@
 </template>
 
 <script>
+//import axios from "axios";
+
 export default {
   name: "Table",
+  props: ["id"],
+
+  data: function() {
+    return {
+      orderBooks: undefined,
+    };
+  },
+
+  async mounted() {
+    //const response = await axios.get("http://10.1.0.232:9090/api/saham/" + this.orderBooks);
+    //this.orderBooks = response.data;
+    fetch("http://10.1.0.232:9090/api/saham/")
+      .then((res) => res.json())
+      .then((data) => (this.orderBooks = data.data))
+      .catch((err) => console.log(err.message));
+  },
 };
 </script>
 
@@ -153,6 +157,7 @@ export default {
 .container1 {
   background-color: black;
   width: 50%;
+  height: auto;
 }
 
 nav {
