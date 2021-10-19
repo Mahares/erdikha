@@ -2,18 +2,18 @@
   <div id="app">
     <navbar />
     <img alt="Vue logo" src="./assets/logo.png" />
-    <Table />
+    <DataErdikha />
   </div>
 </template>
 
 <script>
-import Table from "./components/Table.vue";
+import DataErdikha from "./components/DataErdikha.vue";
 import navbar from "./components/navbar.vue";
 
 export default {
   name: "App",
   components: {
-    Table,
+    DataErdikha,
     navbar,
   },
 
