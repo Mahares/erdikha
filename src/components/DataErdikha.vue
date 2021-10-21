@@ -1,136 +1,79 @@
 <template>
   <div class="container1">
-    <nav>
-      <ul>
-        <li><a href="">INFOBANK</a></li>
-        <li><a href="">PRE-OPEN</a></li>
-        <li><a href="">MARGIN</a></li>
-        <li><a href="">STOK SPLIT</a></li>
-      </ul>
-    </nav>
+    <div class="container-saham" v-for="orderBook in orderBooks" :key="orderBook.id">
+      <nav>
+        <ul>
+          <li><a href="">INFOBANK</a></li>
+          <li><a href="">PRE-OPEN</a></li>
+          <li><a href="">MARGIN</a></li>
+          <li><a href="">STOK SPLIT</a></li>
+        </ul>
+      </nav>
+      <div class="data_saham_kiri">
+        {{ orderBook.kodeSaham }}<br />
 
-    <div class="data_saham_kiri" v-for="orderBook in orderBooks" :key="orderBook">
-      <div class="detail_data_saham_kiri">
-        <div v-if="orderBook">
-          {{ orderBook.kodeSaham }}
-        </div>
-      </div>
-
-      <div class="detail_data_saham_kiri" v-for="orderBook in orderBooks" :key="orderBook">
         {{ orderBook.hargaTerakhir }}
       </div>
-    </div>
-    <div class="data_saham_kanan" v-for="orderBook in orderBooks" :key="orderBook">
-      <table>
-        <tr>
-          <th>Change: {{ orderBook.changes }}</th>
-          <th>OPEN: {{ orderBook.priceOpen }}</th>
-        </tr>
+      <div class="data_saham_kanan">
+        <table>
+          <tr>
+            <th>Change: {{ orderBook.changes }}</th>
+            <th>OPEN: {{ orderBook.priceOpen }}</th>
+          </tr>
 
-        <tr>
-          <th>Change %: {{ orderBook.changePersen }}%</th>
-          <th>High: {{ orderBook.priceHigh }}</th>
-        </tr>
+          <tr>
+            <th>Change %: {{ orderBook.changePersen }}%</th>
+            <th>High: {{ orderBook.priceHigh }}</th>
+          </tr>
 
-        <tr>
-          <th>Close: {{ orderBook.priceClose }}</th>
-          <th>Low: {{ orderBook.priceLow }}</th>
-        </tr>
+          <tr>
+            <th>Close: {{ orderBook.priceClose }}</th>
+            <th>Low: {{ orderBook.priceLow }}</th>
+          </tr>
 
-        <tr>
-          <th>F.Sell: {{ orderBook.foreignSale }}</th>
-          <th>D.Buy: {{ orderBook.domesticBuy }}</th>
-        </tr>
-      </table>
-    </div>
+          <tr>
+            <th>F.Sell: {{ orderBook.foreignSale }}</th>
+            <th>D.Buy: {{ orderBook.domesticBuy }}</th>
+          </tr>
+        </table>
+      </div>
+      <div class="table-wrapper">
+        <table class="header-doang">
+          <thead>
+            <tr class="heading-row">
+              <th>Ord</th>
+              <th>Lot</th>
+              <th>Bid</th>
+              <th>Offer</th>
+              <th>Lot</th>
+              <th>Ord</th>
+            </tr>
+          </thead>
+        </table>
+      </div>
+      <div class="table-wrapper" v-for="childBooks in orderBook.orderbook" :key="childBooks.id">
+        <table class="fl-table">
+          <tbody>
+            <tr>
+              <td>{{ childBooks.bidOrder }}</td>
+              <td>{{ childBooks.bidLot }}</td>
+              <td>{{ childBooks.bidPrice }}</td>
+              <td>{{ childBooks.offerPrice }}</td>
+              <td>{{ childBooks.offerLot }}</td>
+              <td>{{ childBooks.offerOrder }}</td>
+            </tr>
+          </tbody>
 
-    <div class="table-wrapper" v-for="orderBook in orderBooks" :key="orderBook">
-      <table class="fl-table" v-for="child in orderBook.orderbook" :key="child">
-        <thead>
-          <tr class="heading-row">
-            <th>Ord</th>
-            <th>Lot</th>
-            <th>Bid</th>
-            <th>Offer</th>
-            <th>Lot</th>
-            <th>Ord</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>{{ child.bidOrder }}</td>
-            <td>{{ child.lotOffer }}</td>
-            <td>{{ child.bidPrice }}</td>
-            <td>{{ child.lotPrice }}</td>
-            <td>{{ child.lotOffer }}</td>
-            <td>{{ child.offerOrder }}</td>
-          </tr>
-          <tr>
-            <td>{{ child.bidOrder }}</td>
-            <td>{{ child.lotOffer }}</td>
-            <td>{{ child.bidPrice }}</td>
-            <td>{{ child.lotPrice }}</td>
-            <td>{{ child.lotOffer }}</td>
-            <td>{{ child.offerOrder }}</td>
-          </tr>
-          <tr>
-            <td>{{ child.bidOrder }}</td>
-            <td>{{ child.lotOffer }}</td>
-            <td>{{ child.bidPrice }}</td>
-            <td>{{ child.lotPrice }}</td>
-            <td>{{ child.lotOffer }}</td>
-            <td>{{ child.offerOrder }}</td>
-          </tr>
-          <tr>
-            <td>{{ child.bidOrder }}</td>
-            <td>{{ child.lotOffer }}</td>
-            <td>{{ child.bidPrice }}</td>
-            <td>{{ child.lotPrice }}</td>
-            <td>{{ child.lotOffer }}</td>
-            <td>{{ child.offerOrder }}</td>
-          </tr>
-          <tr>
-            <td>{{ child.bidOrder }}</td>
-            <td>{{ child.lotOffer }}</td>
-            <td>{{ child.bidPrice }}</td>
-            <td>{{ child.lotPrice }}</td>
-            <td>{{ child.lotOffer }}</td>
-            <td>{{ child.offerOrder }}</td>
-          </tr>
-          <tr>
-            <td>{{ child.bidOrder }}</td>
-            <td>{{ child.lotOffer }}</td>
-            <td>{{ child.bidPrice }}</td>
-            <td>{{ child.lotPrice }}</td>
-            <td>{{ child.lotOffer }}</td>
-            <td>{{ child.offerOrder }}</td>
-          </tr>
-          <tr>
-            <td>{{ child.bidOrder }}</td>
-            <td>{{ child.lotOffer }}</td>
-            <td>{{ child.bidPrice }}</td>
-            <td>{{ child.lotPrice }}</td>
-            <td>{{ child.lotOffer }}</td>
-            <td>{{ child.offerOrder }}</td>
-          </tr>
-          <tr>
-            <td>{{ child.bidOrder }}</td>
-            <td>{{ child.lotOffer }}</td>
-            <td>{{ child.bidPrice }}</td>
-            <td>{{ child.lotPrice }}</td>
-            <td>{{ child.lotOffer }}</td>
-            <td>{{ child.offerOrder }}</td>
-          </tr>
-        </tbody>
-
-        <tbody></tbody>
-      </table>
+          <tbody></tbody>
+        </table>
+      </div>
+      <div class="separator"></div>
     </div>
   </div>
 </template>
 
 <script>
-//import axios from "axios";
+import axios from "axios";
 
 export default {
   name: "Table",
@@ -139,25 +82,21 @@ export default {
   data: function() {
     return {
       orderBooks: undefined,
+      childBooks: undefined,
     };
   },
 
   async mounted() {
-    //const response = await axios.get("http://10.1.0.232:9090/api/saham/" + this.orderBooks);
-    //this.orderBooks = response.data;
-    fetch("http://10.1.0.232:9090/api/saham/")
-      .then((res) => res.json())
-      .then((data) => (this.orderBooks = data.data))
-      .catch((err) => console.log(err.message));
+    const response = await axios.get("http://10.1.0.232:9090/api/saham");
+    this.orderBooks = response.data.data;
+    this.childBooks = response.data.data;
   },
 };
 </script>
 
 <style scoped>
 .container1 {
-  background-color: black;
   width: 50%;
-  height: auto;
 }
 
 nav {
@@ -185,9 +124,16 @@ nav ul li a {
   text-decoration: none;
 }
 
+.container-saham {
+  background-color: black;
+}
+
 .data_saham_kiri {
   text-align: left;
-  position: absolute;
+
+  font-size: 2em;
+  color: white;
+  float: left;
 }
 
 .detail_data_saham_kiri {
@@ -221,15 +167,25 @@ nav ul li a {
 /* Table Styles */
 
 .table-wrapper {
-  margin-top: 130px;
   box-shadow: 0px 35px 50px rgba(0, 0, 0, 0.2);
-  overflow-y: scroll;
-  height: 200px;
   display: block;
+  clear: both;
 }
 
 .fl-table {
   border-radius: 5px;
+  font-size: 12px;
+  font-weight: normal;
+  border: none;
+  border-collapse: collapse;
+  width: 100%;
+  max-width: 100%;
+  white-space: nowrap;
+  background-color: black;
+  color: white;
+}
+
+.header-doang {
   font-size: 12px;
   font-weight: normal;
   border: none;
@@ -247,12 +203,17 @@ nav ul li a {
   padding: 8px;
 }
 
+.header-doang th {
+  text-align: center;
+  padding: 8px;
+}
+
 .fl-table td {
   border-right: 1px solid #f8f8f8;
   font-size: 12px;
 }
 
-.fl-table thead th {
+.header-doang {
   color: yellow;
   background: grey;
 }
@@ -266,10 +227,70 @@ nav ul li a {
   background: rgba(128, 128, 128, 0.308);
   color: white;
 }
+.separator {
+  margin-top: 1em;
+}
 
 /* Responsive */
 </style>
+<!-- Sisa Table -->
 
+<!--<tr>
+              <td>xxxxxx</td>
+              <td>xxxxxx</td>
+              <td>xxxxxx</td>
+              <td>xxxxxx</td>
+              <td>xxxxxx</td>
+              <td>xxxxxx</td>
+            </tr>
+            <tr>
+              <td>xxxxxx</td>
+              <td>xxxxxx</td>
+              <td>xxxxxx</td>
+              <td>xxxxxx</td>
+              <td>xxxxxx</td>
+              <td>xxxxxx</td>
+            </tr>
+            <tr>
+              <td>xxxxxx</td>
+              <td>xxxxxx</td>
+              <td>xxxxxx</td>
+              <td>xxxxxx</td>
+              <td>xxxxxx</td>
+              <td>xxxxxx</td>
+            </tr>
+            <tr>
+              <td>xxxxxx</td>
+              <td>xxxxxx</td>
+              <td>xxxxxx</td>
+              <td>xxxxxx</td>
+              <td>xxxxxx</td>
+              <td>xxxxxx</td>
+            </tr>
+            <tr>
+              <td>xxxxxx</td>
+              <td>xxxxxx</td>
+              <td>xxxxxx</td>
+              <td>xxxxxx</td>
+              <td>xxxxxx</td>
+              <td>xxxxxx</td>
+            </tr>
+            <tr>
+              <td>xxxxxx</td>
+              <td>xxxxxx</td>
+              <td>xxxxxx</td>
+              <td>xxxxxx</td>
+              <td>xxxxxx</td>
+              <td>xxxxxx</td>
+            </tr>
+            <tr>
+              <td>xxxxxx</td>
+              <td>xxxxxx</td>
+              <td>xxxxxx</td>
+              <td>xxxxxx</td>
+              <td>xxxxxx</td>
+              <td>xxxxxx</td>
+            </tr>-->
 <!-- @media (max-width: 767px) {
   .fl-table {
     display: block;
