@@ -39,7 +39,7 @@ export default {
 .container {
   box-sizing: border-box;
   margin: -8px;
-  background-color: rgba(80, 75, 75, 0.616);
+  background-color: rgba(70, 69, 69, 0.945);
   display: flex;
   padding: -8px;
   align-items: center;
@@ -79,6 +79,11 @@ a {
 
 .button-container button a {
   color: black;
+}
+
+.button-container button a:hover{
+  color: white;
+  transition: opacity;
 }
 
 .picture1 {

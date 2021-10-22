@@ -2,6 +2,7 @@
   <div id="app">
     <Navbar />
     <DataComposite />
+    <Navbar2 />
     <DataErdikha />
   </div>
 </template>
@@ -10,6 +11,7 @@
 import DataErdikha from "./components/DataErdikha.vue";
 import Navbar from "./components/Navbar.vue";
 import DataComposite from "./components/DataComposite.vue";
+import Navbar2 from "./components/Navbar2.vue"
 
 export default {
   name: "App",
@@ -17,6 +19,7 @@ export default {
     DataErdikha,
     Navbar,
     DataComposite,
+    Navbar2
   },
 
   data: function() {
