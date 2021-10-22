@@ -1,5 +1,5 @@
 <template>
-  <div class="container1">
+  <div class="container">
     <div class="container-saham" v-for="orderBook in orderBooks" :key="orderBook.id">
       <nav>
         <ul>
@@ -63,7 +63,6 @@
               <td>{{ childBooks.offerOrder }}</td>
             </tr>
           </tbody>
-
           <tbody></tbody>
         </table>
       </div>
@@ -87,7 +86,7 @@ export default {
   },
 
   async mounted() {
-    const response = await axios.get("http://10.1.0.232:9090/api/saham");
+    const response = await axios.get("http://10.1.0.205:9090/api/saham");
     this.orderBooks = response.data.data;
     this.childBooks = response.data.data;
   },
@@ -95,7 +94,7 @@ export default {
 </script>
 
 <style scoped>
-.container1 {
+.container {
   width: 50%;
 }
 

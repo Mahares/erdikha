@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <Navbar />
-    <img alt="Vue logo" src="./assets/logo.png" />
+    <DataComposite />
     <DataErdikha />
   </div>
 </template>
@@ -9,12 +9,14 @@
 <script>
 import DataErdikha from "./components/DataErdikha.vue";
 import Navbar from "./components/Navbar.vue";
+import DataComposite from "./components/DataComposite.vue";
 
 export default {
   name: "App",
   components: {
     DataErdikha,
     Navbar,
+    DataComposite,
   },
 
   data: function() {
