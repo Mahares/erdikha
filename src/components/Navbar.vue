@@ -75,19 +75,35 @@ a {
   margin: 0px 5px;
   background-color: yellow;
   border-radius: 1px;
+  transition: 1s;
 }
 
 .button-container button a {
   color: black;
 }
 
+
 .button-container button a:hover{
   color: white;
-  transition: opacity;
+}
+
+
+.button-container button:hover{
+  background-color: black;
 }
 
 .picture1 {
   widows: 100px;
-  height: 100px;
+  height: 100px; 
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+
+  to{
+    opacity: 0;
+  }
 }
 </style>
