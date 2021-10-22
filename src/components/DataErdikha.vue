@@ -63,9 +63,25 @@
               <td>{{ childBooks.offerOrder }}</td>
             </tr>
           </tbody>
+          
+        </table>
+      </div>
+      <div class="table-wrapper">
+        <table class="footer-doang">
+          <tbody>
+            <tr>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+          </tbody>
           <tbody></tbody>
         </table>
       </div>
+      
       <div class="separator"></div>
     </div>
   </div>
@@ -86,7 +102,7 @@ export default {
   },
 
   async mounted() {
-    const response = await axios.get("http://10.1.0.205:9090/api/saham");
+    const response = await axios.get("http://10.1.0.232:9090/api/saham");
     this.orderBooks = response.data.data;
     this.childBooks = response.data.data;
   },
@@ -99,8 +115,8 @@ export default {
 }
 
 nav {
-  padding-left: 0;
-  margin-left: 0;
+  margin-left: -20px;
+  margin-bottom: 30px;
 }
 
 nav ul {
@@ -182,7 +198,30 @@ nav ul li a {
   white-space: nowrap;
   background-color: black;
   color: white;
+  table-layout: fixed;
 }
+
+  .fl-table td,
+  .fl-table th {
+    text-align: center;
+    padding: 8px;
+  }
+
+  .fl-table td {
+    border-right: 1px solid #f8f8f8;
+    font-size: 12px;
+  }
+
+
+  .fl-table thead th:nth-child(odd) {
+    color: yellow;
+    background: grey;
+  }
+
+  .fl-table tr:nth-child(even) {
+    background: rgba(128, 128, 128, 0.308);
+    color: white;
+  }
 
 .header-doang {
   font-size: 12px;
@@ -194,38 +233,59 @@ nav ul li a {
   white-space: nowrap;
   background-color: black;
   color: white;
+  table-layout: fixed;
 }
 
-.fl-table td,
-.fl-table th {
-  text-align: center;
-  padding: 8px;
-}
 
 .header-doang th {
   text-align: center;
   padding: 8px;
+  border-right: 2px solid white;
 }
 
-.fl-table td {
-  border-right: 1px solid #f8f8f8;
-  font-size: 12px;
-}
 
 .header-doang {
   color: yellow;
   background: grey;
 }
 
-.fl-table thead th:nth-child(odd) {
-  color: yellow;
-  background: grey;
+.footer-doang {
+  border-radius: 5px;
+  font-size: 12px;
+  font-weight: normal;
+  border: none;
+  border-collapse: collapse;
+  width: 100%;
+  max-width: 100%;
+  white-space: nowrap;
+  background-color: black;
+  color: white;
+  table-layout: fixed;
 }
 
-.fl-table tr:nth-child(even) {
-  background: rgba(128, 128, 128, 0.308);
-  color: white;
-}
+  .footer-doang td,
+  .footer-doang th {
+    text-align: center;
+    padding: 8px;
+  }
+
+  .footer-doang td {
+    border-right: 1px solid #f8f8f8;
+    font-size: 12px;
+  }
+
+
+  .footer-doang thead th:nth-child(odd) {
+    color: yellow;
+    background: grey;
+  }
+
+  .footer-doang tr:nth-child(even) {
+    background: rgba(128, 128, 128, 0.308);
+    color: white;
+  }
+
+
 .separator {
   margin-top: 1em;
 }
