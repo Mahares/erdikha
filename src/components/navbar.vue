@@ -1,7 +1,7 @@
 <template>
   <div class="container">
     <div class="elit-navigation">
-      <img src="../assets/logo-login.png" alt="" />
+      <img src="../Assets/logo-login.png" alt="" />
 
       <div class="dropdown">
         <button class="menu-parent">Workspace</button>
