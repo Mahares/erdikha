@@ -44,6 +44,7 @@ export default {
     margin-right: 15px;
     float: left;
     margin-top: 10px;
+    background-color: black;
 }
 
 .navigation ul li a{
