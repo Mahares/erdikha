@@ -1,15 +1,18 @@
 <template>
   <div class="container">
     <div class="background">
-      <img alt="Vue logo" src="../Assets/logo.png" />
+      <img alt="Vue logo" src="../Assets/logo-login.png" />
       <h1 style="color: white">Login</h1>
 
       <div class="register">
-        <input type="text" placeholder="Enter Username" />
-        <input type="text" placeholder="Enter Password" />
-        <router-link to="/about"><button>Login</button></router-link>
+        <h2>User ID</h2>
+        <input type="text" v-model="name" placeholder="" />
+        <h2>Password</h2>
+        <input type="text" v-model="password" placeholder="" />
+        <router-link to="/about"><bs-button color="danger">Login</bs-button></router-link>
       </div>
     </div>
+    <mdb-carousel :interval="8000" slide :items="items"></mdb-carousel>
   </div>
 </template>
 
@@ -21,7 +24,7 @@ export default {
 };
 </script>
 
-<style scoped>
+<style scoped lang="scss">
 * {
   box-sizing: border-box;
 }
@@ -56,11 +59,21 @@ div {
   background-size: cover;
 }
 
+.background img {
+  width: 200px;
+  height: 200px;
+}
+
 .register {
   border: 1px solid yellow;
   margin: 0px 500px 0px 500px;
   height: 450px;
   padding: 50px;
+}
+
+.register h2 {
+  color: white;
+  text-align: left;
 }
 
 .register input {
@@ -75,11 +88,11 @@ div {
 }
 
 .register button {
-  width: 320px;
-  height: 40px;
-  border: 1px solid skyblue;
-  background: skyblue;
-  color: #fff;
-  cursor: pointer;
+  margin-bottom: 16px;
+  margin-right: 8px;
+}
+
+.input1 {
+  background-color: none;
 }
 </style>
