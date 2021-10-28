@@ -1,17 +1,36 @@
 <template>
   <div class="container">
     <div class="gambar">
-      <img src="../assets/Logo_AO_Black.png" alt="" />
+      <img src="../Assets/Logo_AO_Black.png" alt="" />
     </div>
-    <div class="data-table">
-        
+    <div class="table-container">
+      <table class="table-design">
+        <tr>
+          <td>Prev: xxxxxxxxxxxxxxx</td>
+          <td>High: xxxxxxxxxxxxxxx</td>
+          <td>F.Buy: xxxxxxxxxxxxxxx</td>
+          <td>D.Buy: xxxxxxxxxxxxxxx</td>
+        </tr>
+        <tr>
+          <td>Op: xxxxxxxxxxxxxxx</td>
+          <td>Low: xxxxxxxxxxxxxxx</td>
+          <td>F.Sell: xxxxxxxxxxxxxxx</td>
+          <td>D.Sell: xxxxxxxxxxxxxxx</td>
+        </tr>
+      </table>
     </div>
   </div>
 </template>
 
 <script>
+import axios from "axios";
 export default {
   name: "DataComposite",
+
+  async mounted() {
+    const response = await axios.get("http://10.1.0.111:9090/api/saham");
+    this.orderBooks = response.data.data;
+  },
 };
 </script>
 
@@ -33,4 +52,7 @@ export default {
   width: 300px;
 }
 
+.table-container {
+  float: right;
+}
 </style>
