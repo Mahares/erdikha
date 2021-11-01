@@ -1,34 +1,67 @@
 <template>
   <div class="container">
     <div class="background">
-      <img alt="Vue logo" src="../Assets/logo-login.png" />
-      <h1 style="color: white">Login</h1>
-
       <div class="register">
-        <h2>User ID</h2>
-        <input type="text" v-model="name" placeholder="" />
-        <h2>Password</h2>
-        <input type="text" v-model="password" placeholder="" />
-        <router-link to="/about"><bs-button color="danger">Login</bs-button></router-link>
+        <form @submit.prevent="onCreatePost">
+          <img alt="Vue logo" src="../Assets/logo-login.png" />
+          <h1 style="color: white">Login</h1>
+          <h2>User ID</h2>
+          <input type="text" v-model="form.email" placeholder="" />
+          <h2>Password</h2>
+          <input type="text" v-model="form.password" placeholder="" />
+          <a href="">Forget Password</a>
+          <bs-button color="danger" type="submit">Register</bs-button>
+        </form>
+      </div>
+
+      <div class="footer">
+        <div class="left-side">
+          PT.Erdikha Elit Sekuritas<br />
+          <span>Member of Indonesia Stock Exchange</span>
+        </div>
+        <div class="right-side">
+          Hotline <br />
+          <span>+62 21 398 36 420</span>
+        </div>
       </div>
     </div>
-    <mdb-carousel :interval="8000" slide :items="items"></mdb-carousel>
   </div>
 </template>
 
 <script>
 // @ is an alias to /src
-
+import axios from "axios";
 export default {
   name: "Home",
+
+  data() {
+    return {
+      form: {
+        email: "",
+        password: "",
+      },
+    };
+  },
+
+  methods: {
+    onCreatePost() {
+      axios
+        .post("http://10.1.0.147:6060/api/register", this.form)
+        .then((res) => {
+          console.log(res);
+        })
+        .catch((error) => {
+          console.log(error);
+        })
+        .finally(() => {
+          console.log("this is wrong");
+        });
+    },
+  },
 };
 </script>
 
 <style scoped lang="scss">
-* {
-  box-sizing: border-box;
-}
-
 .container {
   position: absolute;
   top: 0;
@@ -57,6 +90,7 @@ div {
   max-width: 100%;
   height: 100%;
   background-size: cover;
+  filter: brightness(30%);
 }
 
 .background img {
@@ -67,13 +101,15 @@ div {
 .register {
   border: 1px solid yellow;
   margin: 0px 500px 0px 500px;
-  height: 450px;
+  height: 550px;
   padding: 50px;
+  line-height: 0.5;
 }
 
 .register h2 {
   color: white;
   text-align: left;
+  font-size: 20px;
 }
 
 .register input {
@@ -92,7 +128,27 @@ div {
   margin-right: 8px;
 }
 
-.input1 {
-  background-color: none;
+.footer {
+  margin-left: 480px;
+  margin-right: 480px;
+  display: flex;
+  margin-top: 10px;
+}
+
+.left-side {
+  color: rgb(255, 230, 0);
+  text-align: left;
+  font-weight: bold;
+}
+
+.right-side {
+  color: rgb(255, 230, 0);
+  text-align: right;
+  margin-left: 10px;
+  font-weight: bold;
+}
+
+span {
+  color: white;
 }
 </style>

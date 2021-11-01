@@ -139,9 +139,9 @@ export default {
   margin: -8px;
   background-color: rgba(70, 69, 69, 0.945);
   display: flex;
-  padding: -8px;
+  padding: 12px 8px 8px 8px;
   align-items: center;
-  height: 30px;
+  height: 40px;
   border-bottom: 2px solid rgba(229, 255, 0, 0.753);
   justify-content: space-between;
 }

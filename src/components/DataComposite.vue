@@ -28,7 +28,7 @@ export default {
   name: "DataComposite",
 
   async mounted() {
-    const response = await axios.get("http://10.1.0.111:9090/api/saham");
+    const response = await axios.get("http://10.1.0.147:6060/api/saham");
     this.orderBooks = response.data.data;
   },
 };
