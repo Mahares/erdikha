@@ -2,15 +2,18 @@
   <div class="container">
     <div class="background">
       <div class="register">
-        <form @submit.prevent="onCreatePost">
+        <form>
           <img alt="Vue logo" src="../Assets/logo-login.png" />
           <h1 style="color: white">Login</h1>
           <h2>User ID</h2>
-          <input type="text" v-model="form.email" placeholder="" />
+          <bs-text-field>
+            <lable class="col-md-3 col-xl-2 col-form-label">Text Field</lable>
+          </bs-text-field>
           <h2>Password</h2>
           <input type="text" v-model="form.password" placeholder="" />
-          <a href="">Forget Password</a>
-          <bs-button color="danger" type="submit">Register</bs-button>
+
+          <router-link to="/home-page"><bs-button color="danger" type="submit">Login</bs-button></router-link>
+          <router-link to="/register"><bs-button color="danger" type="submit">Register</bs-button></router-link>
         </form>
       </div>
 
@@ -30,9 +33,9 @@
 
 <script>
 // @ is an alias to /src
-import axios from "axios";
+
 export default {
-  name: "Home",
+  name: "Login",
 
   data() {
     return {
@@ -41,22 +44,6 @@ export default {
         password: "",
       },
     };
-  },
-
-  methods: {
-    onCreatePost() {
-      axios
-        .post("http://10.1.0.147:6060/api/register", this.form)
-        .then((res) => {
-          console.log(res);
-        })
-        .catch((error) => {
-          console.log(error);
-        })
-        .finally(() => {
-          console.log("this is wrong");
-        });
-    },
   },
 };
 </script>

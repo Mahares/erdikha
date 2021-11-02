@@ -14,7 +14,7 @@ import Navbar2 from "../components/Navbar2.vue";
 import DataErdikha from "../components/DataErdikha.vue";
 
 export default {
-  name: "App",
+  name: "HomePage",
 
   data: function() {
     return {

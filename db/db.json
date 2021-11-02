@@ -1,0 +1,26 @@
+{
+  "user": [
+    {
+      "email": "dasfasdf",
+      "password": "asdfasdf",
+      "id": 1
+    },
+    {
+      "email": "afasdfsdaf",
+      "password": "asdfsdfsdf",
+      "id": 2
+    },
+    {
+      "email": "asdfasdfsadf",
+      "password": "asdfsadfsadfsadf",
+      "id": 3
+    },
+    {
+      "data": {
+        "email": "asdfdasf",
+        "password": "asdfsadfasdf"
+      },
+      "id": 4
+    }
+  ]
+}
