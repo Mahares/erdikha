@@ -24,4 +24,10 @@ export default {
   text-align: center;
   color: #2c3e50;
 }
+
+body {
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(to right, #00aaff, #00ff6c);
+}
 </style>

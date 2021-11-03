@@ -23,14 +23,14 @@
 </template>
 
 <script>
-import axios from "axios";
+//import axios from "axios";
 export default {
   name: "DataComposite",
 
-  async mounted() {
+  /*async mounted() {
     const response = await axios.get("http://10.1.0.147:6060/api/saham");
     this.orderBooks = response.data.data;
-  },
+  },*/
 };
 </script>
 

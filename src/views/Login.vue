@@ -2,17 +2,16 @@
   <div class="container">
     <div class="background">
       <div class="register">
-        <form>
+        <form @submit="handleSubmit">
           <img alt="Vue logo" src="../Assets/logo-login.png" />
           <h1 style="color: white">Login</h1>
           <h2>User ID</h2>
-          <bs-text-field>
-            <lable class="col-md-3 col-xl-2 col-form-label">Text Field</lable>
-          </bs-text-field>
+          <input type="text" v-model="userId" placeholder="" />
           <h2>Password</h2>
-          <input type="text" v-model="form.password" placeholder="" />
-
-          <router-link to="/home-page"><bs-button color="danger" type="submit">Login</bs-button></router-link>
+          <input type="password" placeholder="" id="pass" />
+          <button class="btn-hidden" v-on:click="hide()">Hidden</button>
+          <button class="btn-unhidden" v-on:click="unhide()">Unhide</button> <br />
+          <bs-button color="danger" type="submit" v-on:click="userValid()">Login</bs-button>
           <router-link to="/register"><bs-button color="danger" type="submit">Register</bs-button></router-link>
         </form>
       </div>
@@ -39,11 +38,31 @@ export default {
 
   data() {
     return {
-      form: {
-        email: "",
-        password: "",
-      },
+      userId: "",
+      hiddenPass: true,
     };
+  },
+
+  methods: {
+    handleSubmit(e) {
+      e.preventDefault();
+      console.log(e);
+    },
+    userValid() {
+      if (this.userId.length > 5) {
+        alert("The user id must be less than 5 character");
+      } else {
+        this.$router.push("/home-page");
+      }
+    },
+
+    hide() {
+      document.getElementById("pass").setAttribute("type", "password");
+    },
+
+    unhide() {
+      document.getElementById("pass").setAttribute("type", "text");
+    },
   },
 };
 </script>
@@ -137,5 +156,10 @@ div {
 
 span {
   color: white;
+}
+
+.eye img {
+  width: 10px;
+  height: 10px;
 }
 </style>
