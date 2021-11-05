@@ -2,6 +2,7 @@
   "name": "Erdikha",
   "version": "0.1.0",
   "private": true,
+  "proxy": "http://10.1.0.87:8080/saham-demo/saham",
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",

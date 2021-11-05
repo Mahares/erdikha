@@ -16,12 +16,6 @@ import DataErdikha from "../components/DataErdikha.vue";
 export default {
   name: "HomePage",
 
-  data: function() {
-    return {
-      childBooks: undefined,
-    };
-  },
-
   components: {
     Navbar,
     DataComposite,

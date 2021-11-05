@@ -37,7 +37,8 @@
           </tr>
         </table>
       </div>
-      <!--<div class="table-wrapper">
+
+      <div class="table-wrapper">
         <table class="header-doang">
           <thead>
             <tr class="heading-row">
@@ -79,7 +80,7 @@
           </tbody>
           <tbody></tbody>
         </table>
-      </div> -->
+      </div>
 
       <div class="separator"></div>
     </div>
@@ -90,8 +91,7 @@
 import axios from "axios";
 
 export default {
-  name: "Table",
-  props: ["id"],
+  name: "DataErdikha",
 
   data: function() {
     return {
@@ -101,11 +101,8 @@ export default {
     };
   },
 
-  async mounted() {
-    const response = await axios.get("http://localhost:8081/saham-demo/saham");
-    this.orderBooks = response.data;
-    this.childBooks = response.data;
-    console.log(response);
+  mounted() {
+    axios.get("http://10.1.0.146:9090/api/saham").then((response) => (this.orderBooks = response.data.data));
   },
 };
 </script>
