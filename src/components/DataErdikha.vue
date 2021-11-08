@@ -97,12 +97,11 @@ export default {
     return {
       orderBooks: undefined,
       childBooks: undefined,
-      totalOrder: undefined,
     };
   },
 
   mounted() {
-    axios.get("http://10.1.0.146:9090/api/saham").then((response) => (this.orderBooks = response.data.data));
+    axios.get("http://10.1.0.149:8080/saham-demo/saham").then((response) => (this.orderBooks = response.data.data));
   },
 };
 </script>
