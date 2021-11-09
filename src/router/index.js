@@ -3,6 +3,7 @@ import VueRouter from "vue-router";
 import Login from "../views/Login.vue";
 import Register from "../views/Register.vue";
 import CoretCoretan from "../views/CoretCoretan.vue";
+import loginPin from "../components/loginPin.vue";
 
 Vue.use(VueRouter);
 
@@ -31,6 +32,12 @@ const routes = [
     path: "/coret-coretan",
     name: "CoretCoretan",
     component: CoretCoretan,
+  },
+
+  {
+    path: "/login-pin",
+    name: "loginPin",
+    component: loginPin,
   },
 ];
 

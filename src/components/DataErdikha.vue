@@ -1,6 +1,10 @@
 <template>
   <div class="container">
     <div class="container-saham" v-for="orderBook in orderBooks" :key="orderBook.id">
+      <div class="stock-input">
+        <span><input type="text" placeholder="RC"/></span>
+        <input type="text" placeholder="BBRI" />
+      </div>
       <nav>
         <ul>
           <li><a href="">INFOBANK</a></li>
@@ -78,7 +82,6 @@
               <td></td>
             </tr>
           </tbody>
-          <tbody></tbody>
         </table>
       </div>
 
@@ -101,25 +104,51 @@ export default {
   },
 
   mounted() {
-    axios.get("http://10.1.0.149:8080/saham-demo/saham").then((response) => (this.orderBooks = response.data.data));
+    axios.get("http://10.1.0.217:9090/api/saham").then((response) => (this.orderBooks = response.data.data));
   },
 };
 </script>
 
 <style scoped>
+::placeholder {
+  color: white;
+}
 .container {
-  width: 50%;
+  max-width: 500px;
+  display: flex;
+  flex-direction: column;
+  border: 2px solid grey;
 }
 
+.stock-input {
+  max-width: 90%;
+  margin: 20px auto;
+  display: flex;
+}
+
+.stock-input input {
+  width: 100%;
+  background-color: black;
+  border: 1px solid grey;
+  border-radius: 5px;
+}
+
+.stock-input span input {
+  width: 40px;
+  background-color: black;
+  border: 1px solid grey;
+  border-radius: 2px;
+}
+
+/*Style for navigation*/
 nav {
-  margin-left: -20px;
-  margin-bottom: 30px;
+  margin-bottom: 20px;
 }
 
 nav ul {
   text-decoration: none;
   list-style: none;
-  text-align: left;
+  text-align: right;
 }
 
 nav ul li {
@@ -130,11 +159,14 @@ nav ul li {
 
 nav ul li a {
   color: white;
-  border: 1px solid white;
+  border: 2px solid rgb(168, 148, 34);
   border-radius: 5px;
   padding: 0.5em;
   text-decoration: none;
+  font-size: 8px;
 }
+
+/*Style for data saham */
 
 .container-saham {
   background-color: black;
@@ -142,7 +174,7 @@ nav ul li a {
 
 .data_saham_kiri {
   text-align: left;
-
+  padding-left: 20px;
   font-size: 2em;
   color: white;
   float: left;
@@ -235,19 +267,18 @@ nav ul li a {
 .header-doang th {
   text-align: center;
   padding: 8px;
-  border-right: 2px solid white;
+  border-right: 2px solid grey;
 }
 
 .header-doang {
   color: yellow;
-  background: grey;
+  background: rgb(77, 77, 77);
 }
 
 .footer-doang {
   border-radius: 5px;
   font-size: 12px;
   font-weight: normal;
-
   border-collapse: collapse;
   width: 100%;
   max-width: 100%;
@@ -255,7 +286,7 @@ nav ul li a {
   background-color: black;
   color: white;
   table-layout: fixed;
-  border-top: 1px solid white;
+  border-top: 1px solid grey;
 }
 
 .footer-doang td,
@@ -265,7 +296,7 @@ nav ul li a {
 }
 
 .footer-doang td {
-  border-right: 1px solid #f8f8f8;
+  border-right: 1px solid grey;
   font-size: 12px;
 }
 
@@ -277,6 +308,10 @@ nav ul li a {
 .footer-doang tr:nth-child(even) {
   background: rgba(128, 128, 128, 0.308);
   color: white;
+}
+
+.footer-doang tbody tr td {
+  border-bottom: 1px solid grey;
 }
 
 .separator {

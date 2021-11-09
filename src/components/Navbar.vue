@@ -111,9 +111,9 @@
     </div>
 
     <div class="button-container">
-      <button>Fullscreen mode</button>
+      <button v-on:click="reqFullScreen()">Fullscreen mode</button>
       <button>Login pin</button>
-      <button>Log out</button>
+      <router-link to="/"><button>Log out</button></router-link>
     </div>
   </div>
 </template>
@@ -121,6 +121,17 @@
 <script>
 export default {
   name: "navbar",
+
+  data() {},
+
+  methods: {
+    reqFullScreen() {
+      var elem = document.getElementById("myvideo");
+      if (elem.requestFullscreen) {
+        elem.requestFullscreen();
+      }
+    },
+  },
 };
 </script>
 
@@ -135,8 +146,6 @@ export default {
 }
 
 .container {
-  box-sizing: border-box;
-  margin: -8px;
   background-color: rgba(70, 69, 69, 0.945);
   display: flex;
   padding: 12px 8px 8px 8px;
@@ -221,6 +230,7 @@ export default {
 .button-container button:hover {
   background-color: black;
   color: white;
+  cursor: pointer;
 }
 
 .picture1 {

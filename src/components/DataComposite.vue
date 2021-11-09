@@ -36,14 +36,9 @@ export default {
 
 <style scoped>
 .container {
-  height: 7em;
   padding: 0;
   background-color: grey;
-  margin-top: 8px;
-  margin-left: -8px;
-  margin-right: -8px;
   border-bottom: 1px solid yellow;
-  margin-bottom: -15px;
 }
 
 .container img {
