@@ -111,9 +111,9 @@
     </div>
 
     <div class="button-container">
-      <button v-on:click="reqFullScreen()">Fullscreen mode</button>
+      <button>Fullscreen mode</button>
       <button>Login pin</button>
-      <router-link to="/"><button>Log out</button></router-link>
+      <button>Log out</button>
     </div>
   </div>
 </template>
@@ -121,17 +121,6 @@
 <script>
 export default {
   name: "navbar",
-
-  data() {},
-
-  methods: {
-    reqFullScreen() {
-      var elem = document.getElementById("myvideo");
-      if (elem.requestFullscreen) {
-        elem.requestFullscreen();
-      }
-    },
-  },
 };
 </script>
 

@@ -4,6 +4,7 @@
     <DataComposite />
     <Navbar2 />
     <DataErdikha />
+    <RunningTrade />
   </div>
 </template>
 
@@ -12,6 +13,7 @@ import Navbar from "../components/Navbar.vue";
 import DataComposite from "../components/DataComposite.vue";
 import Navbar2 from "../components/Navbar2.vue";
 import DataErdikha from "../components/DataErdikha.vue";
+import RunningTrade from "../components/RunningTrade.vue";
 
 export default {
   name: "HomePage",
@@ -21,6 +23,7 @@ export default {
     DataComposite,
     Navbar2,
     DataErdikha,
+    RunningTrade,
   },
 };
 </script>
@@ -28,9 +31,5 @@ export default {
 <style>
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
 }
 </style>

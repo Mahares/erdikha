@@ -104,7 +104,7 @@ export default {
   },
 
   mounted() {
-    axios.get("http://10.1.0.217:9090/api/saham").then((response) => (this.orderBooks = response.data.data));
+    axios.get("http://10.1.0.217:8080/saham-demo/saham").then((response) => (this.orderBooks = response.data.data));
   },
 };
 </script>

@@ -11,7 +11,6 @@ export default {
 </script>
 
 <style>
-/*
 * {
   margin: 0;
   padding: 0;
@@ -25,5 +24,5 @@ export default {
   color: #2c3e50;
   display: flex;
   flex-direction: column;
-}*/
+}
 </style>

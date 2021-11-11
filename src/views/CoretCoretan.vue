@@ -1,17 +1,16 @@
 <template>
   <div class="container">
     <header>
-      <h1>Vue Events</h1>
+      <h1>Reactivity in Action</h1>
     </header>
-    <section id="events">
-      <h2>Events in Action</h2>
+    <section id="assignment">
       <button v-on:click="addNumber(5)">Add 5</button>
-      <button v-on:click="removeNumber(5)">Remove 5</button>
-      <p v-once>Starting Number: {{ counter }}</p>
+      <button v-on:click="addNumber(1)">Add 1</button>
+      <!-- 1) Connect the buttons and calculate a value (a number) -->
+      <!-- Show "Not there yet" until you reach a result of exactly 37 -->
+      <!-- Show "Too much!" if the result is greater than 37 -->
       <p>Result: {{ counter }}</p>
-      <input type="text" v-model="name" />
-      <button v-on:click="resetInput()">Reset input</button>
-      <p>Your Name: {{ name }}</p>
+      <!-- 2) Watch for changes in "result" and reset the value to 0 after 5 seconds -->
     </section>
   </div>
 </template>
@@ -22,7 +21,7 @@ export default {
 
   data() {
     return {
-      counter: 10,
+      counter: 0,
       name: "",
       confirmName: "",
     };
@@ -73,55 +72,50 @@ body {
 
 header {
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
-  margin: 3rem auto;
+  margin: 3rem;
   border-radius: 10px;
   padding: 1rem;
-  background-color: #4fc08d;
+  background-color: #1b995e;
   color: white;
   text-align: center;
-  width: 90%;
-  max-width: 40rem;
 }
 
-#events {
+#assignment {
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
-  margin: 3rem auto;
+  margin: 3rem;
   border-radius: 10px;
   padding: 1rem;
   text-align: center;
-  width: 90%;
-  max-width: 40rem;
 }
 
-#events h2 {
+#assignment h2 {
   font-size: 2rem;
   border-bottom: 4px solid #ccc;
-  color: #4fc08d;
+  color: #1b995e;
   margin: 0 0 1rem 0;
 }
 
-#events p {
+#assignment p {
   font-size: 1.25rem;
   font-weight: bold;
-  border: 1px solid #4fc08d;
-  background-color: #4fc08d;
-  color: white;
+  background-color: #8ddba4;
   padding: 0.5rem;
+  color: #1f1f1f;
   border-radius: 25px;
 }
 
-#events input {
+#assignment input {
   font: inherit;
   border: 1px solid #ccc;
 }
 
-#events input:focus {
+#assignment input:focus {
   outline: none;
   border-color: #1b995e;
   background-color: #d7fdeb;
 }
 
-#events button {
+#assignment button {
   font: inherit;
   cursor: pointer;
   border: 1px solid #ff0077;
@@ -129,12 +123,10 @@ header {
   color: white;
   padding: 0.05rem 1rem;
   box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.26);
-  border-radius: 20px;
-  margin: 0 1rem;
 }
 
-#events button:hover,
-#events button:active {
+#assignment button:hover,
+#assignment button:active {
   background-color: #ec3169;
   border-color: #ec3169;
   box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.26);
