@@ -9,6 +9,7 @@ import VueMdb from "vue-mdbootstrap";
 import BootstrapVue from "bootstrap-vue";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap-vue/dist/bootstrap-vue";
+import VueChartkick from "vue-chartkick";
 
 library.add(faUserSecret, faSpinner);
 library.add(faFacebook, faInstagram, faTwitter, faWhatsapp);
@@ -17,6 +18,7 @@ Vue.component("font-awesome-icon", FontAwesomeIcon);
 Vue.config.productionTip = false;
 Vue.use(VueMdb);
 Vue.use(BootstrapVue);
+Vue.use(VueChartkick);
 
 new Vue({
   router,
