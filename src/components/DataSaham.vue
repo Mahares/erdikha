@@ -1,6 +1,6 @@
 <template>
   <div class="big-container">
-    <div class="left-container" v-for="orderBook in orderBooks" :key="orderBook.id">
+    <div class="left-container">
       <div class="my-demo-wrapper">
         <bs-text-field placeholder="Placeholder" floating-label outlined datalist="my-list1" class="mr-1 ml-1">
           <label>Tipe Saham</label>
@@ -23,66 +23,43 @@
           <li><a href="#">Link 2</a></li>
           <li><a href="#">Link 3</a></li>
           <li><a href="#">Link 4</a></li>
+          <li>{{ $store.state.currentJoke }}</li>
         </ul>
       </div>
 
       <div class="core-data-saham">
         <div class="data-saham-kiri">
-          <h1>{{ orderBook.kodeSaham }}</h1>
-          <h1>{{ orderBook.lastPrice }}</h1>
+          <h1 v-for="saham in items" :key="saham.id">{{ saham.kodeSaham }}</h1>
+          <h1>xxxxx</h1>
         </div>
 
         <table>
           <tr>
-            Change:
-            {{
-              orderBook.changeValue
-            }}
+            Change: xxxxx
           </tr>
           <tr>
-            Change%:
-            {{
-              orderBook.changePercent
-            }}
+            Change%: xxxxx
           </tr>
           <tr>
-            Close:
-            {{
-              orderBook.priceClose
-            }}
+            Close: xxxxx
           </tr>
           <tr>
-            F.Sell:
-            {{
-              orderBook.foreignSell
-            }}
+            F.Sell: xxxxx
           </tr>
         </table>
 
         <table>
           <tr>
-            Open:
-            {{
-              orderBook.priceOpen
-            }}
+            Open: xxxxx
           </tr>
           <tr>
-            High:
-            {{
-              orderBook.priceHigh
-            }}
+            High: xxxxx
           </tr>
           <tr>
-            Low:
-            {{
-              orderBook.priceLow
-            }}
+            Low: xxxxx
           </tr>
           <tr>
-            D.Buy:
-            {{
-              orderBook.domesticBuy
-            }}
+            D.Buy: xxxxx
           </tr>
         </table>
       </div>
@@ -93,7 +70,9 @@
 </template>
 
 <script>
-import axios from "axios";
+//import axios from "axios";
+import { mapState } from "vuex";
+
 export default {
   name: "DataSaham",
 
@@ -101,14 +80,21 @@ export default {
     return {
       namaSaham: ["BBCA", "AALI", "ANTM", "BBRI"],
       tipeSaham: ["Reguler", "Tradisional", "Negosiasi"],
-      orderBooks: [],
     };
   },
 
-  async mounted() {
-    const response = await axios.get("http://10.1.0.137:8080/saham-demo/saham");
-    this.orderBooks = response.data.data;
+  mounted() {
+    this.$store.dispatch("loadItems");
   },
+
+  computed: {
+    ...mapState(["items"]),
+  },
+
+  /*  async mounted() {
+    const response = await axios.get("http://10.1.0.193:8080/saham-demo/saham");
+    this.orderBooks = response.data.data;
+  }, */
 };
 </script>
 

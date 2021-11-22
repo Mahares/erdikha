@@ -28,6 +28,7 @@
         <input type="text" placeholder="Username" />
         <input type="password" placeholder="Password" /><br /><br />
         <div class="my-demo-wrapper text-center"><bs-button color="warning" pill @click="loginButton()">Login</bs-button></div>
+        <div class="forget-password"><a href="https://aoreport.erdikha.com/Hint/ForgetPassword.aspx" target="_blank">Lupa Password</a></div>
       </form>
     </div>
   </div>
@@ -139,6 +140,15 @@ export default {
 .btn {
   margin-bottom: 16px;
   margin-right: 8px;
+}
+
+.forget-password {
+  text-align: center;
+}
+
+.forget-password a {
+  color: rgb(230, 230, 29);
+  text-decoration: underline;
 }
 </style>
 
