@@ -1,6 +1,6 @@
 <template>
   <div class="big-container">
-    <div class="left-container">
+    <div class="left-container" v-for="saham in items" :key="saham.id">
       <div class="my-demo-wrapper">
         <bs-text-field placeholder="Placeholder" floating-label outlined datalist="my-list1" class="mr-1 ml-1">
           <label>Tipe Saham</label>
@@ -23,19 +23,21 @@
           <li><a href="#">Link 2</a></li>
           <li><a href="#">Link 3</a></li>
           <li><a href="#">Link 4</a></li>
-          <li>{{ $store.state.currentJoke }}</li>
         </ul>
       </div>
 
       <div class="core-data-saham">
         <div class="data-saham-kiri">
-          <h1 v-for="saham in items" :key="saham.id">{{ saham.kodeSaham }}</h1>
-          <h1>xxxxx</h1>
+          <h1>{{ saham.kodeSaham }}</h1>
+          <h1>{{ saham.lastPrice }}</h1>
         </div>
 
         <table>
           <tr>
-            Change: xxxxx
+            Change:
+            {{
+              saham.changeValue
+            }}
           </tr>
           <tr>
             Change%: xxxxx

@@ -19,7 +19,7 @@ const store = new Vuex.Store({
   actions: {
     loadItems({ commit }) {
       axios
-        .get("http://10.1.0.193:8080/saham-demo/saham")
+        .get("http://10.1.0.140:8080/saham-demo/saham")
         .then((response) => response.data.data)
         .then((items) => {
           commit("SET_Item", items);
