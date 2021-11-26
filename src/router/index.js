@@ -3,6 +3,7 @@ import VueRouter from "vue-router";
 import LoginPage from "../views/LoginPage.vue";
 import HomePage from "../views/HomePage.vue";
 import InputPin from "../components/InputPin.vue";
+import RegisterPage from "../views/RegisterPage.vue";
 
 Vue.use(VueRouter);
 
@@ -11,6 +12,12 @@ const routes = [
     path: "/",
     name: "LoginPage",
     component: LoginPage,
+  },
+
+  {
+    path: "/register",
+    name: "RegisterPage",
+    component: RegisterPage,
   },
 
   {

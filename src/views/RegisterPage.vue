@@ -24,10 +24,10 @@
 
     <div class="login-container">
       <form action="submit" class="login-field">
-        <h1>Login</h1>
+        <h1>Register</h1>
         <input type="text" placeholder="Email" v-model="email" />
         <input type="password" placeholder="Password" v-model="credential" /><br /><br />
-        <div class="my-demo-wrapper text-center"><bs-button color="warning" pill @click="loginButton()">Login</bs-button></div>
+        <div class="my-demo-wrapper text-center"><bs-button color="warning" pill @click="btnRegister()">Register</bs-button></div>
         <div class="forget-password"><a href="https://aoreport.erdikha.com/Hint/ForgetPassword.aspx" target="_blank">Lupa Password</a></div>
       </form>
     </div>
@@ -35,6 +35,8 @@
 </template>
 
 <script>
+import axios from "axios";
+
 export default {
   name: "LoginPage",
 
@@ -42,8 +44,19 @@ export default {
     return {
       email: "",
       credential: "",
-      authenticated: false,
     };
+  },
+
+  methods: {
+    btnRegister() {
+      axios
+        .post("http://localhost:8080/saham-demo/register", {
+          email: this.email,
+          credential: this.credential,
+        })
+        .then((response) => console.log(response))
+        .then((error) => console.log(error));
+    },
   },
 };
 </script>

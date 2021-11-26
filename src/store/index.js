@@ -1,6 +1,7 @@
 import axios from "axios";
 import Vue from "vue";
 import Vuex from "vuex";
+import loginStore from "./modules/login/index";
 
 Vue.use(Vuex);
 
@@ -33,7 +34,9 @@ const store = new Vuex.Store({
     },
   },
 
-  modules: {},
+  modules: {
+    logins: loginStore,
+  },
 });
 
 export default store;

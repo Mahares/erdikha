@@ -6,6 +6,7 @@
         <bs-spacer></bs-spacer>
         <div class="functional">
           <button>Input PIN</button>
+
           <button><router-link to="/">Logout</router-link></button>
         </div>
       </bs-appbar>
@@ -18,23 +19,27 @@
       <li><router-link to="">MARKET SUMMARY</router-link></li>
       <li><router-link to="">NEWS</router-link></li>
     </ul>
-
-    <input-pin></input-pin>
   </div>
 </template>
 
 <script>
-import InputPin from "../components/InputPin.vue";
+//import InputPin from "../components/InputPin.vue";
 
 export default {
   name: "TheHeader",
+
+  data() {
+    return {
+      inputClicked: true,
+    };
+  },
   components: {
-    InputPin,
+    /* InputPin, */
   },
 
-  methods: {
-    btnInputClicked() {
-      this.$router.push("/home-page/pin");
+  computed: {
+    mounted() {
+      return this.$store.dispatch("loadData");
     },
   },
 };
