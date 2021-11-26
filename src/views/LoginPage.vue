@@ -24,10 +24,10 @@
 
     <div class="login-container">
       <form action="submit" class="login-field">
-        <h1>Login</h1>
-        <input type="text" placeholder="Username" />
-        <input type="password" placeholder="Password" /><br /><br />
-        <div class="my-demo-wrapper text-center"><bs-button color="warning" pill @click="loginButton()">Login</bs-button></div>
+        <h1>Register</h1>
+        <input type="text" placeholder="Email" v-model="email" />
+        <input type="password" placeholder="Password" v-model="credential" /><br /><br />
+        <div class="my-demo-wrapper text-center"><bs-button color="warning" pill @click="btnRegister()">Register</bs-button></div>
         <div class="forget-password"><a href="https://aoreport.erdikha.com/Hint/ForgetPassword.aspx" target="_blank">Lupa Password</a></div>
       </form>
     </div>
@@ -35,23 +35,27 @@
 </template>
 
 <script>
+import axios from "axios";
+
 export default {
   name: "LoginPage",
 
   data() {
     return {
-      userName: "",
-      password: "",
+      email: "",
+      credential: "",
     };
   },
 
   methods: {
-    loginButton() {
-      if (this.userName.length > 5) {
-        alert("The user id must be less than 5 character");
-      } else {
-        this.$router.push("/home-page");
-      }
+    btnRegister() {
+      axios
+        .post("http://localhost:8080/saham-demo/register", {
+          email: this.email,
+          credential: this.credential,
+        })
+        .then((response) => console.log(response))
+        .then((error) => console.log(error));
     },
   },
 };
