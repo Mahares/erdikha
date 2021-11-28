@@ -5,7 +5,7 @@
         <bs-appbar-title class="text-white" title="Erdikha Elit Sekuritas"> </bs-appbar-title>
         <bs-spacer></bs-spacer>
         <div class="functional">
-          <button>Input PIN</button>
+          <button @click="btnInputPin">Input PIN</button>
 
           <button><router-link to="/">Logout</router-link></button>
         </div>
@@ -19,22 +19,31 @@
       <li><router-link to="">MARKET SUMMARY</router-link></li>
       <li><router-link to="">NEWS</router-link></li>
     </ul>
+    <div v-show="inputClicked == true">
+      <input-pin></input-pin>
+    </div>
   </div>
 </template>
 
 <script>
-//import InputPin from "../components/InputPin.vue";
+import InputPin from "../components/InputPin.vue";
 
 export default {
   name: "TheHeader",
 
   data() {
     return {
-      inputClicked: true,
+      inputClicked: false,
     };
   },
   components: {
-    /* InputPin, */
+    InputPin,
+  },
+
+  methods: {
+    btnInputPin() {
+      this.inputClicked = !this.inputClicked;
+    },
   },
 
   computed: {

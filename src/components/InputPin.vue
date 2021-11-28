@@ -21,8 +21,12 @@ export default {
 
 <style scoped>
 .container {
-  background-color: #263238;
-  width: 200px;
+  text-align: center;
+  padding: 0.5rem;
+  margin: 1rem auto;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
+  border-radius: 12px;
+  background-color: #202731;
 }
 
 header {

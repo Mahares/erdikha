@@ -24,12 +24,11 @@ const routes = [
     path: "/home-page",
     name: "HomePage",
     component: HomePage,
-    children: [
-      {
-        path: "/pin",
-        component: InputPin,
-      },
-    ],
+  },
+
+  {
+    path: "/pin",
+    component: InputPin,
   },
 ];
 
