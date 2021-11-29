@@ -1,4 +1,4 @@
-import axios from "axios";
+import axios from "../axios/axios";
 import Vue from "vue";
 import Vuex from "vuex";
 import loginStore from "./modules/login/index";
@@ -20,7 +20,7 @@ const store = new Vuex.Store({
   actions: {
     loadItems({ commit }) {
       axios
-        .get("http://10.1.0.140:8080/saham-demo/saham")
+        .get("/saham")
         .then((response) => response.data.data)
         .then((items) => {
           commit("SET_Item", items);

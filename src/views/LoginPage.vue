@@ -27,7 +27,7 @@
         <h1>Login</h1>
         <input type="text" placeholder="Email" v-model="email" />
         <input type="password" placeholder="Password" v-model="credential" /><br /><br />
-        <div class="my-demo-wrapper text-center"><bs-button color="warning" pill @click="loginButton()">Login</bs-button></div>
+        <div class="my-demo-wrapper text-center"><bs-button color="warning" pill @click="btnLogin()">Login</bs-button></div>
         <div class="forget-password"><a href="https://aoreport.erdikha.com/Hint/ForgetPassword.aspx" target="_blank">Lupa Password</a></div>
       </form>
     </div>
@@ -35,6 +35,7 @@
 </template>
 
 <script>
+import axios from "../axios/axios";
 export default {
   name: "LoginPage",
 
@@ -44,6 +45,47 @@ export default {
       credential: "",
       authenticated: false,
     };
+  },
+
+  methods: {
+    btnLogin() {
+      if (this.email == "" || this.credential == "") {
+        this.showWarningNotification();
+      } else if (!this.email.includes("@")) {
+        this.showWarningNotificationEmail();
+      } else {
+        axios
+          .post("/login", {
+            email: this.email,
+            credential: this.credential,
+          })
+          .then((response) => {
+            console.log(response);
+            this.showSuccessNotification();
+            this.$router.push("/home-page");
+          })
+          .catch((error) => {
+            console.log(error);
+            this.showErrorNotification();
+          });
+      }
+    },
+
+    showWarningNotification() {
+      this.$notification.warning("Email or Password is empty", "Warning");
+    },
+
+    showWarningNotificationEmail() {
+      this.$notification.warning("Please enter the valid email format", "Warning");
+    },
+
+    showErrorNotification() {
+      this.$notification.error("Please enter correct Email or Password", "Error");
+    },
+
+    showSuccessNotification() {
+      this.$notification.success("Login successfull Welcome " + this.email, "Success");
+    },
   },
 };
 </script>

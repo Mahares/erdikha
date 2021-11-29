@@ -3,7 +3,7 @@
     <header>Input Pin</header>
 
     <input type="text" />
-    <button>OK</button>
+    <bs-button color="warning" pill class="w-10 h-50 mt-1">OK</bs-button>
   </div>
 </template>
 
@@ -27,11 +27,21 @@ export default {
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
   border-radius: 12px;
   background-color: #202731;
+  width: 300px;
 }
 
 header {
   color: #ffd600;
   margin-bottom: 20px;
   border-bottom: 2px solid #ffd600;
+}
+
+input {
+  margin-right: 4px;
+  width: 80px;
+}
+
+button {
+  font-size: 15px;
 }
 </style>
