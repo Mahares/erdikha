@@ -4,6 +4,7 @@ import LoginPage from "../views/LoginPage.vue";
 import HomePage from "../views/HomePage.vue";
 import InputPin from "../components/InputPin.vue";
 import RegisterPage from "../views/RegisterPage.vue";
+import ControllerPage from "../components/Controller.vue";
 
 Vue.use(VueRouter);
 
@@ -29,6 +30,11 @@ const routes = [
   {
     path: "/pin",
     component: InputPin,
+  },
+
+  {
+    path: "/controller",
+    component: ControllerPage,
   },
 ];
 

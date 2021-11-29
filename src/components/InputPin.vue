@@ -2,22 +2,49 @@
   <div class="container">
     <header>Input Pin</header>
 
-    <input type="text" />
-    <bs-button color="warning" pill class="w-10 h-50 mt-1">OK</bs-button>
+    <input type="number" v-model="pins" />
+    <bs-button color="warning" pill class="w-10 h-50 mt-1" @click="btnSubmit()">OK</bs-button>
   </div>
 </template>
 
 <script>
+import axios from "axios";
 export default {
   name: "InputPin",
 
   data() {
     return {
-      pin: "",
+      pins: "",
     };
+  },
+
+  methods: {
+    btnSubmit() {
+      if (this.pins == "" || this.pins != "1234") {
+        this.showErrorNotification();
+      } else if (this.pins.length > 4) {
+        this.showErrorNotificationLength();
+      } else {
+        axios
+          .post("http://10.1.0.240:8080/saham-demo/pins", {
+            pins: this.pins,
+          })
+          .then((response) => console.log(response))
+          .catch((error) => console.log(error));
+      }
+    },
+
+    showErrorNotification() {
+      this.$notification.error("PIN Invalid", "Error");
+    },
+
+    showErrorNotificationLength() {
+      this.$notification.error("PIN cannot be more than 4 digit", "Error");
+    },
   },
 };
 </script>
+x
 
 <style scoped>
 .container {
