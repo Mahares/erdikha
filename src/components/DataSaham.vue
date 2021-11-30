@@ -40,28 +40,49 @@
             }}
           </tr>
           <tr>
-            Change%: xxxxx
+            Change%:
+            {{
+              saham.changePercent
+            }}%
           </tr>
           <tr>
-            Close: xxxxx
+            Close:
+            {{
+              saham.priceClose
+            }}
           </tr>
           <tr>
-            F.Sell: xxxxx
+            F.Sell:
+            {{
+              saham.foreignSell
+            }}
           </tr>
         </table>
 
         <table>
           <tr>
-            Open: xxxxx
+            Open:
+            {{
+              saham.priceOpen
+            }}
           </tr>
           <tr>
-            High: xxxxx
+            High:
+            {{
+              saham.priceHigh
+            }}
           </tr>
           <tr>
-            Low: xxxxx
+            Low:
+            {{
+              saham.priceLow
+            }}
           </tr>
           <tr>
-            D.Buy: xxxxx
+            D.Buy:
+            {{
+              saham.domesticBuy
+            }}
           </tr>
         </table>
       </div>

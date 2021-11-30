@@ -4,7 +4,11 @@ import LoginPage from "../views/LoginPage.vue";
 import HomePage from "../views/HomePage.vue";
 import InputPin from "../components/InputPin.vue";
 import RegisterPage from "../views/RegisterPage.vue";
-import ControllerPage from "../components/Controller.vue";
+import BaseController from "../views/BaseController.vue";
+import BuyState from "../components/BuyState.vue";
+import SellState from "../components/SellState.vue";
+import AmmendState from "../components/AmmendState.vue";
+import WithdrawState from "../components/WithdrawState.vue";
 
 Vue.use(VueRouter);
 
@@ -34,7 +38,24 @@ const routes = [
 
   {
     path: "/controller",
-    component: ControllerPage,
+    component: BaseController,
+  },
+
+  {
+    path: "/buy",
+    component: BuyState,
+  },
+  {
+    path: "/sell",
+    component: SellState,
+  },
+  {
+    path: "/ammend",
+    component: AmmendState,
+  },
+  {
+    path: "/withdraw",
+    component: WithdrawState,
   },
 ];
 
