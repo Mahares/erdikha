@@ -1,14 +1,15 @@
 <template>
   <div class="container">
-    <header>Input Pin</header>
+    <div class="input-pin">
+      <header>Input Pin</header>
 
-    <input type="number" v-model="pins" />
-    <bs-button color="warning" pill class="w-10 h-50 mt-1" @click="btnSubmit()">OK</bs-button>
+      <input type="number" v-model="pins" />
+      <bs-button color="warning" pill class="w-10 h-50 mt-1" @click="btnSubmit()">OK</bs-button>
+    </div>
   </div>
 </template>
 
 <script>
-import axios from "axios";
 export default {
   name: "InputPin",
 
@@ -25,12 +26,8 @@ export default {
       } else if (this.pins.length > 4) {
         this.showErrorNotificationLength();
       } else {
-        axios
-          .post("http://10.1.0.240:8080/saham-demo/pins", {
-            pins: this.pins,
-          })
-          .then((response) => console.log(response))
-          .catch((error) => console.log(error));
+        this.showSuccessNotification();
+        close();
       }
     },
 
@@ -41,6 +38,14 @@ export default {
     showErrorNotificationLength() {
       this.$notification.error("PIN cannot be more than 4 digit", "Error");
     },
+
+    showSuccessNotification() {
+      this.$notification.success("Pin validated", "Success");
+    },
+
+    close() {
+      this.$emit("btnInputPin");
+    },
   },
 };
 </script>
@@ -48,6 +53,19 @@ x
 
 <style scoped>
 .container {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.26);
+
+  z-index: 100;
+  max-width: 100%;
+  height: 100%;
+}
+
+.input-pin {
   text-align: center;
   padding: 0.5rem;
   margin: 1rem auto;

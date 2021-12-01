@@ -12,7 +12,7 @@
       </bs-appbar>
     </div>
     <ul class="navigation">
-      <li><router-link to="">BUY</router-link></li>
+      <li @click="btnBuy">BUY</li>
       <li><router-link to="">SELL</router-link></li>
       <li><router-link to="">HEATMAP</router-link></li>
       <li><router-link to="">CHART</router-link></li>
@@ -22,11 +22,15 @@
     <div v-show="inputClicked == true">
       <input-pin></input-pin>
     </div>
+    <div v-show="isBuy == true">
+      <base-controller></base-controller>
+    </div>
   </div>
 </template>
 
 <script>
 import InputPin from "../components/InputPin.vue";
+import BaseController from "../views/BaseController.vue";
 
 export default {
   name: "TheHeader",
@@ -34,15 +38,21 @@ export default {
   data() {
     return {
       inputClicked: false,
+      isBuy: false,
     };
   },
   components: {
     InputPin,
+    BaseController,
   },
 
   methods: {
     btnInputPin() {
       this.inputClicked = !this.inputClicked;
+    },
+
+    btnBuy() {
+      this.isBuy = !this.isBuy;
     },
   },
 
@@ -95,6 +105,8 @@ export default {
   padding: 5px;
   border-radius: 7px;
   transition: 0.5s;
+  color: white;
+  cursor: pointer;
 }
 
 .navigation li a {

@@ -49,18 +49,26 @@ export default {
   methods: {
     btnBuy() {
       this.isBuy = !this.isBuy;
+      this.isSell = false;
+      this.isAmmend = false;
+      this.isWithdraw = false;
     },
 
     btnSell() {
       this.isSell = !this.isSell;
+      this.isBuy = false;
+      this.isAmmend = false;
+      this.isWithdraw = false;
     },
 
     btnAmmend() {
       this.isAmmend = !this.isAmmend;
+      (this.isBuy = false), (this.isSell = false), (this.isWithdraw = false);
     },
 
     btnWithdraw() {
       this.isWithdraw = !this.isWithdraw;
+      (this.isBuy = false), (this.isSell = false), (this.isAmmend = false);
     },
   },
 
@@ -73,4 +81,8 @@ export default {
 };
 </script>
 
-<style scoped></style>
+<style lang="scss" scoped>
+.my-demo-wrapper {
+  padding: 24px;
+}
+</style>
