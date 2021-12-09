@@ -5,10 +5,10 @@ import HomePage from "../views/HomePage.vue";
 import InputPin from "../components/InputPin.vue";
 import RegisterPage from "../views/RegisterPage.vue";
 import BaseController from "../views/BaseController.vue";
-import BuyState from "../components/BuyState.vue";
+/* import BuyState from "../components/BuyState.vue";
 import SellState from "../components/SellState.vue";
 import AmmendState from "../components/AmmendState.vue";
-import WithdrawState from "../components/WithdrawState.vue";
+import WithdrawState from "../components/WithdrawState.vue"; */
 
 Vue.use(VueRouter);
 
@@ -41,7 +41,7 @@ const routes = [
     component: BaseController,
   },
 
-  {
+  /* {
     path: "/buy",
     component: BuyState,
   },
@@ -56,7 +56,7 @@ const routes = [
   {
     path: "/withdraw",
     component: WithdrawState,
-  },
+  }, */
 ];
 
 const router = new VueRouter({

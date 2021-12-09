@@ -1,6 +1,7 @@
 <template>
   <div class="big-container">
-    <div class="left-container" v-for="saham in items" :key="saham.id">
+    <div class="left-container" v-for="saham in orderBooks" :key="saham.id">
+      <!-- v-for="saham in items" :key="saham.id" -->
       <div class="my-demo-wrapper">
         <bs-text-field placeholder="Placeholder" floating-label outlined datalist="my-list1" class="mr-1 ml-1">
           <label>Tipe Saham</label>
@@ -29,60 +30,60 @@
       <div class="core-data-saham">
         <div class="data-saham-kiri">
           <h1>{{ saham.kodeSaham }}</h1>
-          <h1>{{ saham.lastPrice }}</h1>
+          <h1><!-- {{ saham.lastPrice }} --></h1>
         </div>
 
         <table>
           <tr>
             Change:
-            {{
+            <!-- {{
               saham.changeValue
-            }}
+            }} -->
           </tr>
           <tr>
             Change%:
-            {{
+            <!--  {{
               saham.changePercent
-            }}%
+            }}% -->
           </tr>
           <tr>
             Close:
-            {{
+            <!-- {{
               saham.priceClose
-            }}
+            }} -->
           </tr>
           <tr>
             F.Sell:
-            {{
+            <!--  {{
               saham.foreignSell
-            }}
+            }} -->
           </tr>
         </table>
 
         <table>
           <tr>
             Open:
-            {{
+            <!--  {{
               saham.priceOpen
-            }}
+            }} -->
           </tr>
           <tr>
             High:
-            {{
+            <!--  {{
               saham.priceHigh
-            }}
+            }} -->
           </tr>
           <tr>
             Low:
-            {{
+            <!--  {{
               saham.priceLow
-            }}
+            }} -->
           </tr>
           <tr>
             D.Buy:
-            {{
+            <!-- {{
               saham.domesticBuy
-            }}
+            }} -->
           </tr>
         </table>
       </div>
@@ -93,8 +94,8 @@
 </template>
 
 <script>
-//import axios from "axios";
-import { mapState } from "vuex";
+import axios from "axios";
+/* import { mapState } from "vuex"; */
 
 export default {
   name: "DataSaham",
@@ -103,21 +104,22 @@ export default {
     return {
       namaSaham: ["BBCA", "AALI", "ANTM", "BBRI"],
       tipeSaham: ["Reguler", "Tradisional", "Negosiasi"],
+      orderBooks: [],
     };
   },
 
-  mounted() {
+  /* mounted() {
     this.$store.dispatch("loadItems");
-  },
-
-  computed: {
-    ...mapState(["items"]),
-  },
-
-  /*  async mounted() {
-    const response = await axios.get("http://10.1.0.193:8080/saham-demo/saham");
-    this.orderBooks = response.data.data;
   }, */
+
+  /* computed: {
+    ...mapState(["items"]),
+  },  */
+
+  async mounted() {
+    const response = await axios.get("http://10.1.0.216:8080/saham-demo/saham");
+    this.orderBooks = response.data.data;
+  },
 };
 </script>
 

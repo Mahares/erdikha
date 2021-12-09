@@ -27,7 +27,7 @@ export default {
         this.showErrorNotificationLength();
       } else {
         this.showSuccessNotification();
-        close();
+        this.btnPressed();
       }
     },
 
@@ -43,8 +43,8 @@ export default {
       this.$notification.success("Pin validated", "Success");
     },
 
-    close() {
-      this.$emit("btnInputPin");
+    btnPressed() {
+      this.$store.commit("btnInputPin");
     },
   },
 };

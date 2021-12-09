@@ -16,8 +16,8 @@
           <bs-card-body>
             <bs-card-content v-show="isBuy"> <buy-state></buy-state> </bs-card-content>
             <bs-card-content v-show="isSell"> <sell-state></sell-state> </bs-card-content>
-            <bs-card-content v-show="isAmmend"> <ammend-state></ammend-state> </bs-card-content>
-            <bs-card-content v-show="isWithdraw"> <withdraw-state></withdraw-state> </bs-card-content>
+            <bs-card-content v-show="isAmmend"> <ammend-state theOrder="Order"></ammend-state> </bs-card-content>
+            <bs-card-content v-show="isWithdraw"> <withdraw-state theOrder="Order"></withdraw-state> </bs-card-content>
             <bs-card-content>
               <small class="text-muted"> Last updated 3 mins ago </small>
             </bs-card-content>
@@ -30,10 +30,10 @@
 </template>
 
 <script>
-import BuyState from "../components/BuyState.vue";
-import SellState from "../components/SellState.vue";
-import AmmendState from "../components/AmmendState.vue";
-import WithdrawState from "../components/WithdrawState.vue";
+import BuyState from "../components/StateComponents/BuyState.vue";
+import SellState from "../components/StateComponents/SellState.vue";
+import AmmendState from "../components/StateComponents/AmmendState.vue";
+import WithdrawState from "../components/StateComponents/WithdrawState.vue";
 export default {
   name: "BaseController",
 

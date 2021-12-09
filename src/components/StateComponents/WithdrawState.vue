@@ -1,30 +1,30 @@
 <template>
   <div class="my-demo-wrapper">
     <div class="row">
-      <div class="col-lg-6 offset-lg-3">
+      <div class="offset-lg-3">
         <bs-card shadow>
           <bs-card-header class="bg-orange darken-4">Widhtraw</bs-card-header>
           <bs-card-body>
             <div class="button-wrapper">
               <bs-card-content>
-                <label>Client: </label>
+                <label>{{ theClient }}: </label>
                 <input type="text" />
               </bs-card-content>
               <bs-card-content>
-                <label>Order: </label>
+                <label>{{ theOrder }}: </label>
                 <input type="text" />
               </bs-card-content>
               <bs-card-content>
-                <label>Price: </label>
-                <input type="text" />
+                <label>{{ thePrice }}: </label>
+                <input type="number" />
               </bs-card-content>
               <bs-card-content>
-                <label>Lots: </label>
-                <input type="text" />
+                <label>{{ theLots }}: </label>
+                <input type="number" />
               </bs-card-content>
               <bs-card-content>
-                <label>Amount: </label>
-                <input type="text" />
+                <label>{{ theAmount }}: </label>
+                <input type="number" />
               </bs-card-content>
             </div>
           </bs-card-body>
@@ -36,7 +36,34 @@
 </template>
 
 <script>
-export default {};
+export default {
+  props: {
+    theClient: {
+      type: String,
+      default: "Client",
+    },
+
+    theOrder: {
+      type: String,
+      default: "Stock",
+    },
+
+    thePrice: {
+      type: String,
+      default: "Price",
+    },
+
+    theLots: {
+      type: String,
+      default: "Lots",
+    },
+
+    theAmount: {
+      type: String,
+      default: "Amount",
+    },
+  },
+};
 </script>
 
 <style></style>

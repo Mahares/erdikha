@@ -5,7 +5,7 @@
         <bs-appbar-title class="text-white" title="Erdikha Elit Sekuritas"> </bs-appbar-title>
         <bs-spacer></bs-spacer>
         <div class="functional">
-          <button @click="btnInputPin">Input PIN</button>
+          <button @click="btnPressed">Input PIN</button>
 
           <button><router-link to="/">Logout</router-link></button>
         </div>
@@ -19,8 +19,8 @@
       <li><router-link to="">MARKET SUMMARY</router-link></li>
       <li><router-link to="">NEWS</router-link></li>
     </ul>
-    <div v-show="inputClicked == true">
-      <input-pin></input-pin>
+    <div v-show="this.$store.state.inputClicked == true">
+      <input-pin @myevent="btnInputPin"></input-pin>
     </div>
     <div v-show="isBuy == true">
       <base-controller></base-controller>
@@ -54,11 +54,9 @@ export default {
     btnBuy() {
       this.isBuy = !this.isBuy;
     },
-  },
 
-  computed: {
-    mounted() {
-      return this.$store.dispatch("loadData");
+    btnPressed() {
+      this.$store.commit("btnInputPin");
     },
   },
 };
